@@ -1,0 +1,52 @@
+<div class="cartBox">
+    <h1 class="text-danger">Shoping Cart</h1>
+    <div class="headCart d-flex justify-content-between align-items-center mb-3">
+        <p class="lead">You have <label class="text-danger">{{cartData.length}}</label> item in your cart</p>
+        <span (click)="clearCartData()" class="text-danger card-header">Clear Shoping Cart</span>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Price</th>
+                <th style="width: 25%;">Quantity</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (cartData.length > 0) {
+            <tr *ngFor="let product of cartData; let index = index">
+                <td><img [src]="product.item.image" alt=""></td>
+                <td>{{product.item.title}}</td>
+                <td>{{product.item.price}} L.E</td>
+                <td>
+                    <div class="quantity">
+                        <button (click)="plusAmount(index);" class="btn btn-dark">+</button>
+                        <input (change)="changeDetect()" [(ngModel)]="product.quantity" class="form-control" type="number" min="1" max="10">
+                        <button (click)="minusAmount(index)" class="btn btn-danger">-</button>
+                    </div>
+                </td>
+                <td>{{product.item.price * product.quantity | number}} L.E</td>
+                <td><button (click)="deleteProductCart(index)" class="btn btn-danger">Delete</button></td>
+            </tr>
+            } @else {
+                <h3>Cart is empty!</h3>
+            }
+        </tbody>
+        
+        <tfoot *ngIf="cartData.length > 0">
+            <tr>
+                <th><button (click)="addOrder()" class="btn btn-success">Order Now</button></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Total: {{totalPrices() | number}} L.E</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<app-spinner *ngIf="isSpinner" />
+<p-toast position="bottom-right"/>

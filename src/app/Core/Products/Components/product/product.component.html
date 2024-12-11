@@ -1,0 +1,16 @@
+<div class="product-card position-relative rounded-4 shadow-lg">
+    <div routerLink="/products/{{productData.id}}/details/" class="cursor-pointer">
+        <span class="card-price">{{productData.price}} L.E</span>
+        <div class="header-img-container">
+            <img alt="Card" [src]="productData.image" />
+        </div>
+        <h4>{{productData.title}}</h4>
+    </div>
+    <div class="footer-container">
+        <button *ngIf="!addButton" (click)="addButton = true" class="add-to-cart-btn">Add To Cart</button>
+        <div *ngIf="addButton" class="quantity-container">
+            <input min="1" [(ngModel)]="amount" type="number" class="quantity-input" />
+            <button (click)="add()" class="add-to-cart-btn">Add</button>
+        </div>
+    </div>
+</div>

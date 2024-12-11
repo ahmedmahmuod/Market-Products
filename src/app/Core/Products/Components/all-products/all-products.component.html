@@ -1,0 +1,11 @@
+<div class="box">
+    <div class="my-2 w-25 mb-5">
+        <app-select-dom [label]="'Categories'" [data]="allCategories" (selectedValue)="getProductByCategory($event)" />
+    </div>
+    <div class="products">
+        <app-product *ngFor="let product of allProducts;" class="product" [productData]="product"
+            (productAdded)="addProductToCard($event)" />
+    </div>
+</div>
+<app-spinner *ngIf="isSpinner" />
+<p-toast position="bottom-right" />

@@ -1,0 +1,141 @@
+.product-card {
+  width: 300px;
+  height: 350px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* تنسيق حاوية الكارد */
+.product-card-container {
+  display: flex;
+  flex-wrap: wrap; /* السماح للعناصر بالتفاف */
+  justify-content: space-between; /* توزيع العناصر بشكل متساوي */
+}
+
+/* تنسيق صورة الهيدر */
+.header-img-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.header-img-container img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* تنسيق سعر الكارد */
+.card-price {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* تنسيق الفوتر */
+.footer-container {
+  padding: 10px 15px;
+  text-align: center;
+}
+
+/* تنسيق زر "Add To Cart" */
+.add-to-cart-btn {
+  width: 100%; /* الزر يأخذ العرض كامل */
+  height: 40px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.add-to-cart-btn:hover {
+  background-color: #0056b3;
+}
+
+/* تنسيق حقل الكمية وزر "Add" */
+.quantity-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+.quantity-input {
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+.quantity-container button {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.quantity-container button:hover {
+  background-color: #218838;
+}
+
+/* تنسيق العنوان */
+.product-card h4 {
+  font-size: 16px !important;
+  font-weight: normal;
+  text-align: center;
+  color: black;
+  
+}
+
+/* ريسبونسيف للكارد */
+.product-card-container {
+  display: flex;
+  flex-wrap: wrap; /* السماح للعناصر بالتفاف */
+  justify-content: space-between; /* توزيع العناصر بشكل متساوي */
+}
+
+@media (max-width: 1200px) {
+  .product-card {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 576px) {
+  .product-card {
+    margin: 5px 0;
+  }
+  .header-img-container {
+    height: 150px; /* تقليل ارتفاع الصورة على الهواتف */
+  }
+  .add-to-cart-btn {
+    height: 35px; /* تقليل طول الزر على الهواتف */
+  }
+  .quantity-container {
+    flex-direction: column; /* وضع الكمية والزر فوق بعضهم على الهواتف */
+    gap: 5px;
+  }
+  .quantity-input {
+    width: 40px; /* تقليل حجم حقل الكمية على الهواتف */
+  }
+}
